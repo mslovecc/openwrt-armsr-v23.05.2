@@ -24,4 +24,4 @@ sed -i 's/150/25/g' package/network/services/dnsmasq/files/dhcp.conf
 echo srv-host=_vlmcs._tcp.lan,OpenWrt.lan,1688,0,100 >> package/network/services/dnsmasq/files/dnsmasq.conf
 
 # Set default root password
-sed -i 's/root:::0:99999:7:::/root:$1$XkN5ujyp$olcDyYiFKsvY5o0eN6aUr.:19024:0:99999:7:::/g' package/base-files/files/etc/shadow
+sed -i 's/root:::0:99999:7:::/root:$1$o4gFHnsz$gDNYwhnsRl3LH9vGDJypB/:19341:0:99999:7:::/g' package/base-files/files/etc/shadow
