@@ -17,6 +17,9 @@ jobs:
         uses: docker/setup-buildx-action@v1
         with:
           version: latest
+      - name: Download Firmware
+        run: |
+          wget https://github.com/mslovecc/openwrt-armvirt-v22.03.6/releases/download/2024.01.26-0939/openwrt-armvirt-64-default-rootfs.tar.gz -O openwrt.tar.gz
       - name: login to docker hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
       - name: build the image
