@@ -1,4 +1,4 @@
-name: build openwrt-arm64
+name: build udpxy
 
 on:
   workflow_dispatch:
@@ -23,4 +23,4 @@ jobs:
         run: |
           docker buildx build --push \
             --tag mslovecc/openwrt-arm64:latest \
-            --platform linux/arm64 .
+            --platform linux/arm/v7,linux/arm64 .
