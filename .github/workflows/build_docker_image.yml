@@ -1,4 +1,4 @@
-name: build openwrt-arm64
+name: build openwrt-arm64 docker image
 
 on:
   workflow_dispatch:
