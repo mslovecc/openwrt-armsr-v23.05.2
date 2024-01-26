@@ -24,8 +24,8 @@ git checkout v22.03.6
 
 # chmod +x $GITHUB_WORKSPACE/lede/copy-amd64.sh
 # $GITHUB_WORKSPACE/lede/copy-amd64.sh
-git clone https://github.com/mslovecc/luci-theme-argon.git package/luci-theme-argon
-git clone https://github.com/mslovecc/luci-app-argon-config.git package/luci-app-argon-config
+git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
+git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
 mkdir package/ming
 git clone https://github.com/mslovecc/luci-app-pushbot package/ming/luci-app-pushbot
 git clone https://github.com/mslovecc/openwrt-vlmcsd.git package/ming/openwrt-vlmcsd
