@@ -1,26 +1,13 @@
-name: build udpxy
+FROM scratch
 
-on:
-  workflow_dispatch:
+LABEL maintainer=Crazygit
+LABEL homepage="https://github.com/crazygit/openwrt-x86-64"
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Set up QEMU
-        id: qemu
-        uses: docker/setup-qemu-action@v1
-      - name: checkout code
-        uses: actions/checkout@v2
-      - name: install buildx
-        id: buildx
-        uses: docker/setup-buildx-action@v1
-        with:
-          version: latest
-      - name: login to docker hub
-        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
-      - name: build the image
-        run: |
-          docker buildx build --push \
-            --tag mslovecc/udpxy:latest \
-            --platform linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64 .
+ARG FIRMWARE
+# FIRMWARE 使用远程的URL地址的.tar.gz包时不会自动解压，因此只能添加本地文件
+ADD ${FIRMWARE} /
+
+EXPOSE 80
+USER root
+# using exec format so that /sbin/init is proc 1 (see procd docs)
+CMD ["/sbin/init"]
