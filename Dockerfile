@@ -1,7 +1,7 @@
 FROM scratch
 
 # FIRMWARE 使用远程的URL地址的.tar.gz包时不会自动解压，因此只能添加本地文件
-ADD https://downloads.openwrt.org/chaos_calmer/15.05/x86/generic/openwrt-15.05-x86-generic-Generic-rootfs.tar.gz /
+ADD https://github.com/mslovecc/openwrt-armvirt-v22.03.6/releases/download/2024.01.26-0939/openwrt-armvirt-64-default-rootfs.tar.gz /
 
 EXPOSE 80
 USER root
