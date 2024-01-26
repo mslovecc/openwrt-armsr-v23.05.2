@@ -1,0 +1,34 @@
+version: '2.2'
+services:
+  openwrt:
+    # command: /sbin/init
+    image: mslovecc/openwrt-arm64
+    container_name: alpha
+    cap_add:
+      - NET_ADMIN
+    hostname: OpenWrt
+    # devices:
+      # - /dev/ppp
+    environment:
+      - TZ=Asia/Shanghai
+    # ports:
+    #  - 80:80
+    #  - 443:443
+    # volumes:
+    #   - ./config:/etc/config
+    restart: unless-stopped
+    mac_address: 02:42:c0:a8:84:22
+    networks: 
+      macnet0:
+        ipv4_address: 192.168.0.3
+
+networks:
+  macnet0:
+    driver: macvlan
+    driver_opts:
+      parent: eth0
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.0.0/24
+          gateway: 192.168.0.1
